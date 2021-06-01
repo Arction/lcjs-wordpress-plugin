@@ -84,9 +84,10 @@ add_action( 'wp_footer', 'lc_charts_bottom_js', 1000 );
 
 function lc_charts_bottom_js() {
  global $lccharts_scripts;
-  if(is_admin() && isset($_GET['page']) && 'LC-JS/includes/mfp-chart-listing-page.php' == $_GET['page']
-    || 'LC-JS/includes/License.php' == $_GET['page'] || 'LC-JS/includes/get_help.php' == $_GET['page']) 
-    {
+
+ // if(is_admin() && isset($_GET['page']) && 'LC-JS/includes/mfp-chart-listing-page.php' == $_GET['page']
+   // || 'LC-JS/includes/License.php' == $_GET['page'] || 'LC-JS/includes/get_help.php' == $_GET['page']) 
+    //{
     echo '<script  src="'.LC_JS_IIFE_URL.'"></script>';
     echo '<script  src="'.LC_JS_IIFE_URL.'"></script>';
     echo '<script  src="'.plugins_url("js/master-script.js",__FILE__).'"></script>';
@@ -97,7 +98,8 @@ function lc_charts_bottom_js() {
         </script>
         <?php
         }
-    }
+    //}
+    
 }
 
 
@@ -992,7 +994,7 @@ function lcjs_global_vars() {
 
 add_shortcode( 'Lcjs_charts' , 'lcjs_chart_creation' );
 function lcjs_chart_creation( $atts ) {
-  
+  echo "chetana";
   extract( shortcode_atts( array(
     'id' => ''
   ), $atts ) );
@@ -1011,7 +1013,7 @@ function lcjs_chart_creation( $atts ) {
   $html = str_replace('$CHARTID',$id,$html);
   echo $html;
   $json_data = $javascript_data;
-
+ 
   $js_array = get_array_datagrid($json_data,false);
   
   $json_data = json_encode($js_array);
@@ -1053,10 +1055,8 @@ function lcjs_chart_creation( $atts ) {
 
     $paramters['sub_type'] =$param_collection['chart_type_case'] ;
     $param_collection = json_encode($paramters);
-   
-   
     $callscript =  "Render_script_".$chart_method."($json_data,$param_collection);";
-       
+    //echo $callscript;  
     lc_charts_insert_js($callscript);
     
   echo '<style>

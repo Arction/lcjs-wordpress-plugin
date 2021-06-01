@@ -1,5 +1,6 @@
 function Render_script_ChartXY(chartcollection,param_collection)
 {
+
     const {
         lightningChart,
         SolidLine,
@@ -278,7 +279,7 @@ function Render_script_ChartXY(chartcollection,param_collection)
                     .setFillStyle(opaqueFills[0])
                     .setStrokeStyle(stroke => stroke.setFillStyle(solidFills[0]))
                     lineSeries.add(dat_array);
-                    lineSeries.setResultTableFormatter((builder, series, position, highValue, lowValue) => {
+                    lineSeries.setCursorResultTableFormatter((builder, series, position, highValue, lowValue) => {
                         return builder
                         .addRow('Profits')
                         .addRow('Amount: $' + highValue.toFixed(0))
@@ -299,7 +300,7 @@ function Render_script_ChartXY(chartcollection,param_collection)
                     .setFillStyle(opaqueFills[1])
                     .setStrokeStyle(stroke => stroke.setFillStyle(solidFills[1]))
                     lineSeries1.add(dat_array);
-                    lineSeries1.setResultTableFormatter((builder, series, position, highValue, lowValue) => {
+                    lineSeries1.setCursorResultTableFormatter((builder, series, position, highValue, lowValue) => {
                         return builder
                         .addRow('Expenses')
                         .addRow('Amount: $' + highValue.toFixed(0) * -1)
@@ -344,7 +345,7 @@ function Render_script_ChartXY(chartcollection,param_collection)
                     data2  = data[j].Y;
                     data3 = data[j].Z;
                     areaRange.add({ position: ( Number(data1) * 24 * 60 * 60 * 1000), high: Number(data2), low: Number(data3) })
-                    areaRange.setResultTableFormatter((builder, series, figure, yMax, yMin) => {
+                    areaRange.setCursorResultTableFormatter((builder, series, figure, yMax, yMin) => {
                         return builder
                             .addRow('Actual vs Expected Share Prices of Company')
                             .addRow('Date: ' + axisX1.formatValue(figure))
@@ -389,7 +390,7 @@ function Render_script_ChartXY(chartcollection,param_collection)
                 }
                 const areaBipolar = chart.addAreaSeries({ baseline: 40, type: AreaSeriesTypes.Bipolar })
                 .setCursorInterpolationEnabled(false)
-                .setResultTableFormatter((builder, series, position, high, low) => builder
+                .setCursorResultTableFormatter((builder, series, position, high, low) => builder
                 .addRow(series.getName())
                 .addRow('Date:', series.axisX.formatValue(position))
                 .addRow('Growth:', series.axisY.formatValue(high), '%'))
@@ -427,7 +428,7 @@ function Render_script_ChartXY(chartcollection,param_collection)
                             .setInterval(1500, 6500, true, true)
                         const drawCluster = (series, points) => {
                             series.add(points.map(point => ({ x: point.x * dataFrequency, y: point.y })))
-                            series.setResultTableFormatter((builder, series, Xvalue, Yvalue) => {
+                            series.setCursorResultTableFormatter((builder, series, Xvalue, Yvalue) => {
                                 return builder
                                     .addRow(`${series.getName()}`)
                                     .addRow('Date : ' + series.axisX.formatValue(Xvalue))
@@ -653,7 +654,7 @@ function bar_chart(chartcollection,param_collection)
                     )
                     const createSeriesForCategory = (category) => {
                     const series = chart.addRectangleSeries()
-                    series.setResultTableFormatter((builder, series, figure) => {
+                    series.setCursorResultTableFormatter((builder, series, figure) => {
                         let entry = {
                             name: category.name,
                             value: category.data[category.figures.indexOf(figure)]
@@ -787,7 +788,7 @@ function bar_chart(chartcollection,param_collection)
                                 .setGridStrokeYStyle(emptyLine)
                                 .setResultTable((table) => {table
                                 .setOrigin(UIOrigins.CenterBottom)}))
-                        rectangles.setResultTableFormatter((builder, series, figure) => {
+                        rectangles.setCursorResultTableFormatter((builder, series, figure) => {
                                 const entry = bars.find((bar) => bar.rect == figure).entry
                                 return builder
                                     .addRow('Month: ' + entry.category)
@@ -905,7 +906,7 @@ function bar_chart(chartcollection,param_collection)
                                         .setOrigin(UIOrigins.CenterBottom)
                                 })
                             )
-                            rectangles.setResultTableFormatter((builder, series, figure) => {
+                            rectangles.setCursorResultTableFormatter((builder, series, figure) => {
                                 let counter = 0
                                 const entry = bars.find((bar, index) => {
                                     counter = index;
@@ -1155,7 +1156,7 @@ function Render_script_Spider(chartcollection,param_collection)
                 .setPointFillStyle(solid)
                 .setPointSize(10)
                 .setFillStyle(opaque)
-                .setResultTableFormatter((builder, series, value, axis) =>
+                .setCursorResultTableFormatter((builder, series, value, axis) =>
                     builder.addRow(`${series.getName()} ${axis}`)
                 )
             })
@@ -1212,7 +1213,7 @@ function Render_script_Spider(chartcollection,param_collection)
               .setPointFillStyle(solid)
               .setPointSize(10)
               .setFillStyle(opaque)
-              .setResultTableFormatter((builder, series, value, axis) =>
+              .setCursorResultTableFormatter((builder, series, value, axis) =>
                     builder.addRow(`${series.getName()} ${axis}`)
                 )
             })

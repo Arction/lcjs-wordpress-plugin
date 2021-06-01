@@ -80,12 +80,12 @@ opacity: 1;
 </a>
 </div>
 <div class="menu-item"> 
-<a href="#TB_inline?&width=1200&height=900&inlineId=my-content-id" class="thickbox">
+<!--<a href="#TB_inline?&width=1200&height=900&inlineId=my-content-id" class="thickbox">
 <div class="menu-icon bg-yellow">
 <img src="<?php echo plugins_url('images/add-chart-icon.svg', __FILE__); ?>"/>
 </div>
 <p class="item-txt">Add new</p>
-</a>
+</a>-->
 </div>
 </div>
 </div>
@@ -104,7 +104,7 @@ opacity: 1;
 </div>
 <div class="col-12 col-md-4 flex-section controls top10">       
 <button type="button" class="prevbtn" onclick= "preview_value()" value="preview">Preview</button>
-<input type="submit" class="submitbtn" name="submit">
+<input type="submit" class="submitbtn" name="submit" value="Save">
 </div>   
 </div>
 </div> 
@@ -118,7 +118,7 @@ opacity: 1;
 <div class="editor_section" id="section1">
 <div class="tab">
 <button class="tablinks" type="button" onclick="tabs(event, 'html')"><b>Html</b></button>
-<button class="tablinks" type="button" onclick="tabs(event, 'javascript')"><b>Values</b></button>
+<button class="tablinks default" type="button" onclick="tabs(event, 'javascript')"><b>Values</b></button>
 <button class="tablinks" type="button" onclick="tabs(event, 'setting')"><b>Settings</b></button>
 </div>
 <div id="html" class="tabcontent" value="">
@@ -469,7 +469,7 @@ echo '<li class="page-item">'.$pgl.'</li>';
 {
 ?>
 <tbody>
-<tr><td colspan="5">No records found</td></tr>
+<tr><td colspan="5">No charts found</td></tr>
 </tbody>
 </table>
 <?php
@@ -657,13 +657,14 @@ jQuery('.toggle-all').click(function(){
                             }
                         }
                      }
-                     jQuery("#example").tabularInput("addRow");			// Add a row at the end
+                    jQuery("#example").tabularInput("addRow");			// Add a row at the end
                     jQuery("#example").tabularInput("deleteRow");			// Delete the last row
                     jQuery("#example").tabularInput("deleteRow");		// Delete row at index 2
                     jQuery("#example").tabularInput("addColumn");			// Add a column at the end
                     jQuery("#example").tabularInput("deleteColumn"); 
                     jQuery('#Title_name').val(obj.example_title);
                     jQuery('#sel_chart_type').val(getExample);
+                    jQuery(".tablinks")[1].click();
                     preview_value();
                   });
             });
@@ -725,7 +726,7 @@ jQuery('.toggle-all').click(function(){
               //var colorpicker = jQuery('#colorpicker').val();
               if(html_code=='')
               {
-                alert("Enter Html and javascript code");
+                alert("Enter Html and Data values");
               }else
               {
                 var data = {
@@ -749,8 +750,9 @@ jQuery('.toggle-all').click(function(){
                 });
             }
             }
-
+            
             function tabs(evt, tab) {
+              
             var i, tabcontent, tablinks;
             tabcontent = document.getElementsByClassName("tabcontent");
             for (i = 0; i < tabcontent.length; i++) {
