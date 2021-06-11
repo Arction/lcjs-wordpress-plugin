@@ -27,6 +27,7 @@ function Render_script_ChartXY(chartcollection,param_collection)
     if(x =='Bar Chart' || x =='Vertical Bars' || x =='Horizontal Bars')
     {
         bar_chart(chartcollection,param_collection);
+        return;
     }
     var chart = lightningChart(license_key).ChartXY({
         container: 'target_'+param_collection.set_id,
@@ -591,6 +592,7 @@ function Render_script_ChartXY(chartcollection,param_collection)
 
 function bar_chart(chartcollection,param_collection)
 {
+    
     const {
         lightningChart,
         SolidLine,
