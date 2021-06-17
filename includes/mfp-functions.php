@@ -978,7 +978,7 @@ function lcjs_global_vars() {
     return (json_last_error()===JSON_ERROR_NONE);
 }
 
-add_shortcode( 'Lcjs_charts' , 'lcjs_chart_creation' );
+add_shortcode( 'lcjs_charts' , 'lcjs_chart_creation' );
 function lcjs_chart_creation( $atts ) {
   
   extract( shortcode_atts( array(
@@ -994,10 +994,10 @@ function lcjs_chart_creation( $atts ) {
   $width1     =  get_post_meta( $id, 'width', true ) ;
   $param_data     =  get_post_meta( $id, 'param_data', true ) ;
   $param_collection = json_decode($param_data,true);
-
+  $display_code = '';
   //lc_charts_enqueue_javascript($javascript);
   $html = str_replace('$CHARTID',$id,$html);
-  echo $html;
+  $display_code .= $html;
   $json_data = $javascript_data;
  
   $js_array = get_array_datagrid($json_data,false);
@@ -1009,7 +1009,6 @@ function lcjs_chart_creation( $atts ) {
     $chart_method = $param_collection['chart_method'];
     $set_title  = $param_collection['set_title'];
     $paramters['set_title'] = $set_title;
-    //$paramters['set_color'] = $param_collection['set_color'];
     $paramters['setAnimationsEnabled'] = $setAnimationsEnabled;
     $paramters['setMultipleSliceExplosion'] = $setMultipleSliceExplosion;
 
@@ -1040,7 +1039,7 @@ function lcjs_chart_creation( $atts ) {
     $callscript =  "Render_script_".$chart_method."($json_data,$param_collection);"; 
     lc_charts_insert_js($callscript);
     
-  echo '<style>
+    $display_code .= '<style>
   #target_'.$id.'{
     width:  ' . $width1 . 'px;
     height: ' . $height1 . 'px;
@@ -1051,7 +1050,7 @@ function lcjs_chart_creation( $atts ) {
     height: ' . $height1 . 'px;
   }
   </style>';
-
+ return $display_code;
 }
 add_action( 'wp_ajax_delete_list', 'lcjs_do_delete_list' );
 

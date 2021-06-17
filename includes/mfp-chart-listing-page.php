@@ -424,7 +424,7 @@ foreach ($latest_charts as $charts) {
 <tr>
 <td width="100px"><?php echo $i; ?> </td>
 <td><?php echo $charts->post_title; ?> </td>
-<td><?php echo '[Lcjs_charts id='.$charts->ID.']' ?> </td>
+<td><?php echo '[lcjs_charts id='.$charts->ID.']' ?> </td>
 <td><?php echo $charts->post_date; ?> </td>
 <td> 
 <a class="thickbox changeStatus" href="#TB_inline?&width=1200&height=900&inlineId=my-content-id" data-id="<?php echo $charts->ID; ?>">
