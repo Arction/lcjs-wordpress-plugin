@@ -1,0 +1,13 @@
+LightningChart®JS Wordpress plugin
+Copyright 2021 Arction ltd.
+
+This product includes software developed at
+Arction ltd (https://www.arction.com/).
+
+The LightningChart®JS library is not governed by the Apache License, Version 2.
+LightningChart®JS Community License can be found in the included file LIGHTNINGCHARTJS-LICENSE.
+For commercial use, purchase of a Web Developer license is necessary.
+Information and pricing of available licenses can be found on https://www.arction.com/lightningchart-js-pricing/
+
+Modifying the source code to remove LightningChart®JS library from the plugin is strictly prohibited.
+Modifying the source code to create a competing product is strictly prohibited.
