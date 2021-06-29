@@ -5,17 +5,17 @@ Plugin Name:       LC JS Charts
 Plugin URI:        https://wordpress.org/plugins/lC-jS-charts
 Tags:              comments, spam
 Author URI:        https://www.arction.com/
-Author:            arction
+Author:            Arction
 Donate link:       https://www.arction.com/contact/
 Requires at least: 4.7
 Tested up to:      5.5.1
-Requires PHP: 5.6
+Requires PHP:      5.6
 Stable tag:        4.3
 Version:           1.0
-License: GPLv3 or later
-License URI: https://www.gnu.org/licenses/gpl-3.0.txt
+License:           Apache-2.0
+License URI:       http://www.apache.org/licenses/LICENSE-2.0
 
-LCJS Charts is a lightningchart JS plugin that can easily be used to create, update, manage 
+LCJS Charts is a LightningChart JS plugin that can easily be used to create, update, manage 
 and embed interactive charts into your WordPress posts and pages.
 == Description ==
 = Important disclaimer =
