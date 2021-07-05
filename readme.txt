@@ -1,20 +1,35 @@
 #LC JS Charts
 
-Contributors       : chetanakamble
-Plugin Name        : LC JS Charts
-Plugin URI         : https://gitlab.com/arction/lcjs/plug-ins/lcjs-wordpress-plugin.git
-Tags               : comments, spam
-Author URI         : https://www.arction.com/
-Author             : arction
-Donate link        : https://www.arction.com/contact/
-Requires at least  : 4.7
-Tested up to       : 5.5.1
-Requires PHP       : 5.6
-Stable tag         : 4.3
-Version            : 1.0
+Contributors:      chetanakamble
+Plugin Name:       LC JS Charts
+Plugin URI:        https://wordpress.org/plugins/lC-jS-charts
+Tags:              comments, spam
+Author URI:        https://www.arction.com/
+Author:            Arction
+Donate link:       https://www.arction.com/contact/
+Requires at least: 4.7
+Tested up to:      5.5.1
+Requires PHP:      5.6
+Stable tag:        4.3
+Version:           1.0
+License:           Apache-2.0
+License URI:       http://www.apache.org/licenses/LICENSE-2.0
 
-#LIghtningChart JS
-LCJS Charts is a lightningchart JS plugin that can easily be used to create, update, manage and embed interactive charts into your WordPress posts and pages.
+LCJS Charts is a LightningChart JS plugin that can easily be used to create, update, manage 
+and embed interactive charts into your WordPress posts and pages.
+== Description ==
+= Important disclaimer =
+This plugin loads JavaScript libraries, LightningChart® JS, from external @arction, 
+which is a data visualization library (free for non-commercial use), provided by Arction Ltd.
+ LightningChart® JS shows a logo in the corner of the chart. 
+ This small contribution comes from LightningChart® JS, and is not added by this plugin itself.
+Relatated links :
+https://www.arction.com/community-license
+https://www.arction.com/terms-and-conditions/
+= What is it? =
+LightningChart® JS’s exceptionally powerful rendering ensures smooth animations exceeding all 
+industry standards in amount of data per chart. The graphing library provides intuitive touch 
+screen interactivity with zooming, panning, moving data cursors and so on.
 
 #Installation
 1. Use GitLab Page to clone the LC-JS plugin or downloaded the .zip or .rar file.
