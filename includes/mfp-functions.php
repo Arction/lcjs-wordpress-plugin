@@ -84,9 +84,10 @@ add_action( 'wp_footer', 'lc_charts_bottom_js', 1000 );
 
 function lc_charts_bottom_js() {
  global $lccharts_scripts;
-  if(is_admin() && isset($_GET['page']) && 'LC-JS/includes/mfp-chart-listing-page.php' == $_GET['page']
-    || 'LC-JS/includes/License.php' == $_GET['page'] || 'LC-JS/includes/get_help.php' == $_GET['page']) 
-    {
+
+ // if(is_admin() && isset($_GET['page']) && 'LC-JS/includes/mfp-chart-listing-page.php' == $_GET['page']
+   // || 'LC-JS/includes/License.php' == $_GET['page'] || 'LC-JS/includes/get_help.php' == $_GET['page']) 
+    //{
     echo '<script  src="'.LC_JS_IIFE_URL.'"></script>';
     echo '<script  src="'.LC_JS_IIFE_URL.'"></script>';
     echo '<script  src="'.plugins_url("js/master-script.js",__FILE__).'"></script>';
@@ -97,7 +98,8 @@ function lc_charts_bottom_js() {
         </script>
         <?php
         }
-    }
+    //}
+    
 }
 
 
@@ -924,61 +926,47 @@ function lcjs_global_vars() {
         $additional,
             
         array(
-            /*
-          'dashboard' => array(
-            'name'    => esc_html__( 'Dashboard', 'visualizer' ),
-            'enabled' => true,
-            'icon' => plugins_url('../images/icons/path 265.svg',__FILE__) ,
-            'description' => plugins_url('../images/icons/Union 4.svg',__FILE__),
-          ),*/
           'bar_chart'         => array(
             'name'    => esc_html__( 'Bar Chart', 'visualizer' ),
             'enabled' => true,
-            'icon' => plugins_url('../images/icons/Group 5.svg',__FILE__),
-            'description' =>  plugins_url('../images/icons/Union 4.svg',__FILE__),
+            'icon' => plugins_url('../images/icons/group_5.svg',__FILE__),
+            'description' =>  plugins_url('../images/icons/union_4.svg',__FILE__),
           ),
           'radial_charts'      => array(
             'name'    => esc_html__( 'Radial Charts', 'visualizer' ),
             'enabled' => true,
-            'icon' => plugins_url('../images/icons/path 279.svg',__FILE__),
-            'description' =>  plugins_url('../images/icons/Union 4.svg',__FILE__),
+            'icon' => plugins_url('../images/icons/path_279.svg',__FILE__),
+            'description' =>  plugins_url('../images/icons/union_4.svg',__FILE__),
           ),
           'line_series'        => array(
             'name'    => esc_html__( 'Line Series', 'visualizer' ),
             'enabled' => true,
-            'icon' => plugins_url('../images/icons/path 271.svg',__FILE__),
-            'description' =>  plugins_url('../images/icons/Union 4.svg',__FILE__),
+            'icon' => plugins_url('../images/icons/path_271.svg',__FILE__),
+            'description' =>  plugins_url('../images/icons/union_4.svg',__FILE__),
           ),
           'trading' => array(
             'name'    => esc_html__( 'Trading', 'visualizer' ),
             'enabled' => true,
-            'icon' => plugins_url('../images/icons/Group 2.svg',__FILE__),
-            'description' =>  plugins_url('../images/icons/Union 4.svg',__FILE__),
+            'icon' => plugins_url('../images/icons/group_2.svg',__FILE__),
+            'description' =>  plugins_url('../images/icons/union_4.svg',__FILE__),
           ), 
-          
           'statistics'         => array(
             'name'    => esc_html__( 'Statistics', 'visualizer' ),
             'enabled' => true,
-            'icon' => plugins_url('../images/icons/Group 3.svg',__FILE__),
-            'description' =>  plugins_url('../images/icons/Union 4.svg',__FILE__),
+            'icon' => plugins_url('../images/icons/group_3.svg',__FILE__),
+            'description' =>  plugins_url('../images/icons/union_4.svg',__FILE__),
           ),
           'area_series'        => array(
             'name'    => esc_html__( 'Area Series', 'visualizer' ),
             'enabled' => true,
-            'icon' => plugins_url('../images/icons/path 273.svg',__FILE__),
-            'description' =>  plugins_url('../images/icons/Union 4.svg',__FILE__),
-          ),/*
-          'Heatmaps'         => array(
-            'name'    => esc_html__( 'Heatmaps', 'visualizer' ),
-            'enabled' => true,
-            'icon' => plugins_url('../images/icons/Group 4.svg',__FILE__),
-            'description' =>  plugins_url('../images/icons/Union 4.svg',__FILE__),
-          ),*/
+            'icon' => plugins_url('../images/icons/path_273.svg',__FILE__),
+            'description' =>  plugins_url('../images/icons/union_4.svg',__FILE__),
+          ),
           '3D_Charts'         => array(
             'name'    => esc_html__( '3D Charts', 'visualizer' ),
             'enabled' => true,
-            'icon' => plugins_url('../images/icons/path 264.svg',__FILE__),
-            'description' =>  plugins_url('../images/icons/Union 4.svg',__FILE__),
+            'icon' => plugins_url('../images/icons/path_264.svg',__FILE__),
+            'description' =>  plugins_url('../images/icons/union_4.svg',__FILE__),
           )
         )
       );
@@ -990,7 +978,7 @@ function lcjs_global_vars() {
     return (json_last_error()===JSON_ERROR_NONE);
 }
 
-add_shortcode( 'Lcjs_charts' , 'lcjs_chart_creation' );
+add_shortcode( 'lcjs_charts' , 'lcjs_chart_creation' );
 function lcjs_chart_creation( $atts ) {
   
   extract( shortcode_atts( array(
@@ -1006,12 +994,12 @@ function lcjs_chart_creation( $atts ) {
   $width1     =  get_post_meta( $id, 'width', true ) ;
   $param_data     =  get_post_meta( $id, 'param_data', true ) ;
   $param_collection = json_decode($param_data,true);
-
+  $display_code = '';
   //lc_charts_enqueue_javascript($javascript);
   $html = str_replace('$CHARTID',$id,$html);
-  echo $html;
+  $display_code .= $html;
   $json_data = $javascript_data;
-
+ 
   $js_array = get_array_datagrid($json_data,false);
   
   $json_data = json_encode($js_array);
@@ -1021,7 +1009,6 @@ function lcjs_chart_creation( $atts ) {
     $chart_method = $param_collection['chart_method'];
     $set_title  = $param_collection['set_title'];
     $paramters['set_title'] = $set_title;
-    //$paramters['set_color'] = $param_collection['set_color'];
     $paramters['setAnimationsEnabled'] = $setAnimationsEnabled;
     $paramters['setMultipleSliceExplosion'] = $setMultipleSliceExplosion;
 
@@ -1041,25 +1028,18 @@ function lcjs_chart_creation( $atts ) {
   
    if($chart_method=='Chart3D')
    {
-        /*Series generate function start  */
         $seriescount =$param_collection['num_of_series'];
-        $numberofpointsinseries = $param_collection['num_of_points'];
-        //$series_data = generate_series($seriescount, $numberofpointsinseries);
-        //$json_data = json_encode($series_data);
-        /*Series generate function end  */
+        $numberofpointsinseries = $param_collection['num_of_points'];   
    }
     $paramters['numberOfRows'] = $numberOfRows;
     $paramters['numberOfColumns'] = $numberOfColumns;
 
     $paramters['sub_type'] =$param_collection['chart_type_case'] ;
     $param_collection = json_encode($paramters);
-   
-   
-    $callscript =  "Render_script_".$chart_method."($json_data,$param_collection);";
-       
+    $callscript =  "Render_script_".$chart_method."($json_data,$param_collection);"; 
     lc_charts_insert_js($callscript);
     
-  echo '<style>
+    $display_code .= '<style>
   #target_'.$id.'{
     width:  ' . $width1 . 'px;
     height: ' . $height1 . 'px;
@@ -1070,7 +1050,7 @@ function lcjs_chart_creation( $atts ) {
     height: ' . $height1 . 'px;
   }
   </style>';
-
+ return $display_code;
 }
 add_action( 'wp_ajax_delete_list', 'lcjs_do_delete_list' );
 

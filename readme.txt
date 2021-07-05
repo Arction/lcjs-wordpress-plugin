@@ -1,4 +1,4 @@
-=== LC JS Charts ===
+#LC JS Charts
 
 Contributors:      chetanakamble
 Plugin Name:       LC JS Charts
@@ -31,12 +31,30 @@ LightningChart® JS’s exceptionally powerful rendering ensures smooth animatio
 industry standards in amount of data per chart. The graphing library provides intuitive touch 
 screen interactivity with zooming, panning, moving data cursors and so on.
 
-Dashboard control makes it easy and convenient to manage dozens of charts, 
-legend boxes, buttons, check boxes and other UI elements. 
-The dashboard is rendered resource‑efficiently in single GPU‑scene which 
-also makes resizing columns and rows very fast.
+#Installation
+1. Use GitLab Page to clone the LC-JS plugin or downloaded the .zip or .rar file.
+2. Copy all flies of plugin in folder and name the folder as "LC-JS".(If your downloaded zip name folder is other than 'LC-JS' then rename it to "LC-JS") 
+3. After downloading the archive file make sure to place all files in directory as follows:
+      Xampp > htdocs > wordpress(Project folder) > wp-content > plugins > LC-JS
+4.Login to wordpress admin panel,In plugins list ,activate LC-JS plugin. It is ready to use.
 
+#What is it?
+LightningChart® JS’s exceptionally powerful rendering ensures smooth animations exceeding all industry standards in amount of data per chart. The graphing library provides intuitive touch screen interactivity with zooming, panning, moving data cursors and so on.
+Dashboard control makes it easy and convenient to manage dozens of charts, legend boxes, buttons, check boxes and other UI elements. 
+The dashboard is rendered resource efficiently in single GPU scene which also makes resizeing columns and rows very fast.
 
+#Description
+LC-JS plugin provides Chart Library which includes all exsisting charts that you can change or update.Also you can create new charts with custom data.
+        
+##features:
+        * Create new chart
+        * Create shortcode
+        * Edit or Delete Chart
+        * Preview Chart
+        * Add Custom data
+        * Import and Export Data
+        * Add Column,Add Row,Delete Column,Delete Row
+        * Custom set Height,Width and chart title
 
 You can also use a built-in PHP function to invoke the chart anywhere in your template:
 `<?php code(do_shortcode('[Lcjs_charts id=$chart_id]')); ?>`
@@ -45,34 +63,38 @@ You can also use a built-in PHP function to invoke the chart anywhere in your te
 The plugin has also many helpful functions:
  * Default working example for reference in each chart type
  * Required libraries and available resources load automatically.
-== Installation ==
-1.Use WordPress Plugin page to search and install the LC JS Charts plugin.
 
-2.If you choose to install in manually, make sure all the files from the downloaded archive 
-are placed into your /wp-content/plugins/LC-JS/ directory.
-== Upgrade Notice ==
-= 1.0 =
+
+#Upgrade Notice
+  1.0 
+
 Upgrade notices describe the reason a user should upgrade.
-== Screenshots ==
+# Screenshots
 1. screenshot-1
 2. screenshot-2
-== Changelog ==
-= 1.0 =
-* LightningChart JS bundle is distributed containing CommonJS and IIFE builds with types declaration file 
-for convenient development experience for both JavaScript and TypeScript developers.
-== Upgrade Notice ==
-== Frequently Asked Questions ==
-=1.What is LightningChart JS best at? =
-LightningChart JS shines at building applications with the following properties:
-Applications that deal with extensive datasets.
-Applications that deal with high-intensity data streams.
-Applications that deploy on multiple platforms.
-=2.What LightningChart JS can do? For what it can be used for? =
-LightningChart JS is developed to provide high-performance data-visualization solutions for websites and web applications.
-LightningChart JS can draw:
 
-Charts and Graphs (Line plot, Scatter plot, Area plot, etc.);
-UI elements (Buttons, Checkboxes, Annotations, etc.);
-Dashboard with multiple charts and UI inside one pane.
-== Donations ==
+#Changelog
+  1.0 
+* LightningChart JS bundle is distributed containing CommonJS and IIFE builds with types declaration file for convenient development experience for both JavaScript and TypeScript developers.
+
+#Upgrade Notice
+  1.0
+#Frequently Asked Questions 
+#1.What is LightningChart JS best at?
+LightningChart JS shines at building applications with the following properties:
+	Applications that deal with extensive datasets.
+	Applications that deal with high-intensity data streams.
+	Applications that deploy on multiple platforms.
+#2.What LightningChart JS can do? For what it can be used for?
+	LightningChart JS is developed to provide high-performance data-visualization solutions for websites and web applications.
+	LightningChart JS can draw:
+           1.Charts and Graphs (Line plot, Scatter plot, Area plot, etc.);
+           2.UI elements (Buttons, Checkboxes, Annotations, etc.);
+           3.Dashboard with multiple charts and UI inside one pane.
+
+#Relatated links :
+https://www.arction.com/community-license
+https://www.arction.com/terms-and-conditions/
+
+#Donations
 `<?php code(); // goes in backticks ?>`
