@@ -85,9 +85,16 @@ add_action( 'wp_footer', 'lc_charts_bottom_js', 1000 );
 function lc_charts_bottom_js() {
  global $lccharts_scripts;
 
- // if(is_admin() && isset($_GET['page']) && 'LC-JS/includes/mfp-chart-listing-page.php' == $_GET['page']
-   // || 'LC-JS/includes/License.php' == $_GET['page'] || 'LC-JS/includes/get_help.php' == $_GET['page']) 
-    //{
+global $lccharts_scripts;
+ global $wpdb;
+
+$query = "SELECT ID FROM ".$wpdb->posts." WHERE post_content LIKE '%[lcjs_charts %' AND post_status = 'publish'";
+$results = $wpdb->get_results($query);
+$myArray = json_decode(json_encode($results), true);
+$dataSubjectsValue = array_column($myArray, 'ID');
+$postid = get_the_ID();
+if(in_array($postid,$dataSubjectsValue)|| (strpos($_GET['page'], 'mfp-chart-listing-page.php') !== false))
+    {
     echo '<script  src="'.LC_JS_IIFE_URL.'"></script>';
     echo '<script  src="'.LC_JS_IIFE_URL.'"></script>';
     echo '<script  src="'.plugins_url("js/master-script.js",__FILE__).'"></script>';
@@ -98,7 +105,7 @@ function lc_charts_bottom_js() {
         </script>
         <?php
         }
-    //}
+    }  
     
 }
 
@@ -1040,16 +1047,12 @@ function lcjs_chart_creation( $atts ) {
     lc_charts_insert_js($callscript);
     
     $display_code .= '<style>
-  #target_'.$id.'{
-    width:  ' . $width1 . 'px;
-    height: ' . $height1 . 'px;
-  }
-  #chart-1
-  {
-    width:  ' . $width1 . 'px;
-    height: ' . $height1 . 'px;
-  }
-  </style>';
+                          #target_'.$id.'{
+                                width:  ' . $width1 . 'px;
+                                max-width: 100%;
+                                height: ' . $height1 . 'px;
+                            }  
+                       </style>';
  return $display_code;
 }
 add_action( 'wp_ajax_delete_list', 'lcjs_do_delete_list' );
