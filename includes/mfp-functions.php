@@ -97,7 +97,7 @@ if(in_array($postid,$dataSubjectsValue)|| (strpos($_GET['page'], 'mfp-chart-list
     {
     echo '<script  src="'.LC_JS_IIFE_URL.'"></script>';
     echo '<script  src="'.LC_JS_IIFE_URL.'"></script>';
-    echo '<script  src="'.plugins_url("js/master-script.js",__FILE__).'"></script>';
+    echo '<script  src="'.plugins_url("js/lcjs_master-script.js",__FILE__).'"></script>';
     include 'licensekey.php'; 
     if ( sizeof( $lccharts_scripts ) ) { ?>
         <script>
