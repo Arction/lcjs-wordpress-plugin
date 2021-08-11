@@ -79,14 +79,7 @@ opacity: 1;
 <p class="item-txt">Chart Library</p>
 </a>
 </div>
-<div class="menu-item"> 
-<!--<a href="#TB_inline?&width=1200&height=900&inlineId=my-content-id" class="thickbox">
-<div class="menu-icon bg-yellow">
-<img src="<?php echo plugins_url('images/add-chart-icon.svg', __FILE__); ?>"/>
-</div>
-<p class="item-txt">Add new</p>
-</a>-->
-</div>
+
 </div>
 </div>
   <?php add_thickbox(); ?>
