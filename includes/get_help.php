@@ -161,7 +161,7 @@ div.panel {
     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
       <span aria-hidden="true">&times;</span>
     </button>
-    <iframe width="100%" height="95%" src="https://www.youtube.com/embed/LAR6hoOXttk" frameborder="0" allowfullscreen></iframe>
+    <iframe width="100%" height="95%" src="https://www.youtube.com/embed/yJncQMmRrEM" frameborder="0" allowfullscreen></iframe>
   </div>
   </div>
 </div>
