@@ -2,7 +2,7 @@
 
 Contributors:      chetanakamble
 Plugin Name:       LC JS Charts
-Plugin URI:        https://wordpress.org/plugins/lC-jS-charts
+Plugin URI:        https://github.com/Arction/lcjs-wordpress-plugin
 Tags:              comments, spam
 Author URI:        https://www.arction.com/
 Author:            Arction
@@ -17,34 +17,36 @@ License URI:       http://www.apache.org/licenses/LICENSE-2.0
 
 LCJS Charts is a LightningChart JS plugin that can easily be used to create, update, manage 
 and embed interactive charts into your WordPress posts and pages.
+
+
 == Description ==
+
 = Important disclaimer =
 This plugin loads JavaScript libraries, LightningChart® JS, from external @arction, 
 which is a data visualization library (free for non-commercial use), provided by Arction Ltd.
  LightningChart® JS shows a logo in the corner of the chart. 
  This small contribution comes from LightningChart® JS, and is not added by this plugin itself.
+
 Relatated links :
 https://www.arction.com/community-license
 https://www.arction.com/terms-and-conditions/
+
 = What is it? =
 LightningChart® JS’s exceptionally powerful rendering ensures smooth animations exceeding all 
 industry standards in amount of data per chart. The graphing library provides intuitive touch 
 screen interactivity with zooming, panning, moving data cursors and so on.
+Dashboard control makes it easy and convenient to manage dozens of charts, legend boxes, buttons, check boxes and other UI elements. 
+The dashboard is rendered resource efficiently in single GPU scene which also makes resizeing columns and rows very fast.
 
 #Installation
 1. Use GitLab Page to clone the LC-JS plugin or downloaded the .zip or .rar file.
-2. Copy all flies of plugin in folder and name the folder as "LC-JS".(If your downloaded zip name folder is other than 'LC-JS' then rename it to "LC-JS") 
+2. Copy all files of plugin in folder and name the folder as "LC-JS".(If your downloaded zip name folder is other than 'LC-JS' then rename it to "LC-JS") 
 3. After downloading the archive file make sure to place all files in directory as follows:
       Xampp > htdocs > wordpress(Project folder) > wp-content > plugins > LC-JS
 4.Login to wordpress admin panel,In plugins list ,activate LC-JS plugin. It is ready to use.
 
-#What is it?
-LightningChart® JS’s exceptionally powerful rendering ensures smooth animations exceeding all industry standards in amount of data per chart. The graphing library provides intuitive touch screen interactivity with zooming, panning, moving data cursors and so on.
-Dashboard control makes it easy and convenient to manage dozens of charts, legend boxes, buttons, check boxes and other UI elements. 
-The dashboard is rendered resource efficiently in single GPU scene which also makes resizeing columns and rows very fast.
-
 #Description
-LC-JS plugin provides Chart Library which includes all exsisting charts that you can change or update.Also you can create new charts with custom data.
+LC-JS plugin provides Chart Library which includes all exsisting charts that you can change or update. Also you can create new charts with custom data.
         
 ##features:
         * Create new chart
@@ -92,9 +94,6 @@ LightningChart JS shines at building applications with the following properties:
            2.UI elements (Buttons, Checkboxes, Annotations, etc.);
            3.Dashboard with multiple charts and UI inside one pane.
 
-#Relatated links :
+#Related links :
 https://www.arction.com/community-license
 https://www.arction.com/terms-and-conditions/
-
-#Donations
-`<?php code(); // goes in backticks ?>`
