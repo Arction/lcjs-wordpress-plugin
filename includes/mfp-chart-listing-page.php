@@ -64,6 +64,7 @@ opacity: 1;
   opacity: 0;
 }
 </style>
+
 <div class="lc-main-header">
 <div class="row">
 <div class="col-md-8 logo-box"> 
@@ -84,7 +85,7 @@ opacity: 1;
 </div>
   <?php add_thickbox(); ?>
 <div id="my-content-id" style="display:none;">
-<form action="<?php echo admin_url(); ?>admin.php?page=LC-JS%2Fincludes%2Fmfp-chart-listing-page.php" method="post" onsubmit="return validate_me();" id="myForm" enctype="multipart/form-data">
+<form action="<?php echo admin_url(); ?>admin.php?page=LC-JS%2Fincludes%2Fmfp-chart-listing-page.php" method="POST" onsubmit="return validate_me();" id="myForm" name="myForm" enctype="multipart/form-data">
 <div class="inner-page-header ">
 <div class="row">
 <div class="col-12 col-md-8 flex-section">
@@ -97,7 +98,7 @@ opacity: 1;
 </div>
 <div class="col-12 col-md-4 flex-section controls top10">       
 <button type="button" class="prevbtn" onclick= "preview_value()" value="preview">Preview</button>
-<input type="submit" class="submitbtn" name="submit" value="Save">
+<input type="submit" id="submitbtn" class="submitbtn" name="submit" value="Save">
 </div>   
 </div>
 </div> 
@@ -256,6 +257,7 @@ if($prod_key1==null)
 </div>
 <?php
 if (isset($_POST['submit'])){
+ 
       if($_FILES['javascript_csv']['error'] == 0){
         $name = sanitize_file_name($_FILES['javascript_csv']['name']);
         $ext = strtolower(end(explode('.', sanitize_file_name($_FILES['javascript_csv']['name']))));
@@ -964,4 +966,18 @@ jQuery("#example").tabularInput("deleteRow");			// Delete the last row
 jQuery("#example").tabularInput("deleteRow");		// Delete row at index 2
 jQuery("#example").tabularInput("addColumn");			// Add a column at the end
 jQuery("#example").tabularInput("deleteColumn");
+
+function keyPress(e){
+  var x = e || window.event;
+  var key = (x.keyCode || x.which);
+  if(key == 13 || key == 3){
+   e.preventDefault();
+   jQuery( "#submitbtn" ).trigger( "click" );  
+  }
+}
+
+document.onkeypress = keyPress;
+
+
+
 </script>  
